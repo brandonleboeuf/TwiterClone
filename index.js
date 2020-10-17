@@ -9,7 +9,8 @@ const { MONGODB } = require('./config') // password and connection URL
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: ({ req }) => ({ req })
 })
 
 // conects to server
