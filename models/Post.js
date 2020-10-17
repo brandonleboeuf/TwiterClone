@@ -5,6 +5,7 @@ const postSchema = new Schema({
   body: String,
   userName: String,
   createdAt: String,
+  
   comments: [
     {
       body: String,
@@ -12,12 +13,14 @@ const postSchema = new Schema({
       createdAt: String
     }
   ],
+  
   likes: [
     {
       userName: String,
       createdAt: String,
     }
   ],
+  
   user: {
     /*this allows us to later use Mongoose to automaticly 
       populate this user felid using some Mongoose methods*/
