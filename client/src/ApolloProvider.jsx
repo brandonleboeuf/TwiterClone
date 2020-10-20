@@ -1,3 +1,5 @@
+// This hooks up React to Apollos mongoDB server 
+
 import React from "react"
 import App from './App'
 import ApolloClient from "apollo-client"
