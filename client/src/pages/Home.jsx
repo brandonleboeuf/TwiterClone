@@ -1,24 +1,21 @@
-import React from "react";
-import { gql, useQuery } from "@apollo/client";
-import { Grid } from "semantic-ui-react";
+import React from 'react';
+import { gql, useQuery } from '@apollo/client';
+import { Grid } from 'semantic-ui-react';
 
-import PostCard from "../components/PostCard";
+import PostCard from '../components/PostCard';
 
 function Home() {
   const { loading, data } = useQuery(FETCH_POSTS_QUERY);
-  if (data) {
-    console.log(data);
-  }
   return (
     <Grid columns={3}>
       <Grid.Row
         className="page-title"
         style={{
-          display: "block",
-          justifyContent: "center",
-          textAlign: "center",
-          fontSize: "2rem",
-          marginTop: "10px",
+          display: 'block',
+          justifyContent: 'center',
+          textAlign: 'center',
+          fontSize: '2rem',
+          marginTop: '10px',
         }}
       >
         <h1>Recent Posts</h1>
