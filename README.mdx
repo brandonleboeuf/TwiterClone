@@ -1,52 +1,68 @@
 # Social Media App from FreeCodeCamp.com
 
-<!-- Link to video 
+<!-- Link to video
 https://www.youtube.com/watch?v=n1mdAPFq2Os -->
+
 ### TO START
+
   <!-- this starts React on localhost:3000 -->
-  cd socialMediaApp
-  npm run serve
+
+cd socialMediaApp
+npm run serve
 
   <!-- this starts the Apollo server on localhost:5000 -->
-  cd client
-  npm start
 
+cd client
+npm start
 
 ## TECH BEING USED:
- - React
- - Semantic UI
- - GraphQL
- - Express
- - MongoDB (Atlas) (signed up with Brandon.LeBoeuf.Dev)
- - Node.js
 
+- React
+- Semantic UI
+- GraphQL
+- Express
+- MongoDB (Atlas) (signed up with Brandon.LeBoeuf.Dev)
+- Node.js
 
 ### TREMINAL INSTALLS
-  npm init -y 
-  git init
-  npm i apollo-server
-  npm i graphql
-  npm i mongoose
-  npm i apollo-server graphql mongoose
-  npm i -D nodemon
-  npm i bcryptjs 
-  npm i jsonwebtoken
-  npx create-react-app
-  npm i @apollo/react-hooks 
+
+<!-- root folder -->
+
+npm init -y
+git init
+npm i apollo-server
+npm i graphql
+npm i mongoose
+npm i apollo-server graphql mongoose
+npm i -D nodemon
+npm i bcryptjs
+npm i jsonwebtoken
+npx create-react-app
+
+  <!-- depreciated  -->
+  <!-- npm i @apollo/react-hooks 
   npm i apollo-cache-inmemory
-  npm i apollo-link-http
-  npm i apollo-client
-  npm i react-router-dom
-  npm i semantic-ui-react
-  npm i semantic-ui-css
-  
+  npm i apollo-link-http -->
 
+  <!-- change all apollo imports to "@apollo/client" -->
 
+npm i @apollo/client
+npm i react-router-dom
+npm i semantic-ui-react
+npm i semantic-ui-css
+npm i moment
+
+<!-- cd client -->
+
+npm i graphql
+npm i graphql-tag
 
 #### Notes
-  - Mongodb
-    - userinfo 
-      - name: classed
 
-    - IP accesse set to "anywhere" (TODO change if going into production)
+- Mongodb
 
+  - userinfo
+
+    - name: classed
+
+  - IP accesse set to "anywhere" (TODO change if going into production)
