@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { gql, useMutation } from '@apollo/client';
 import { Button, Form } from 'semantic-ui-react';
-import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
