@@ -17,9 +17,15 @@ function PostForm() {
       const data = proxy.readQuery({
         query: FETCH_POSTS_QUERY,
       });
-      data.getPosts = [result.data.createPost, ...data.getPosts];
-      proxy.writeQuery({ query: FETCH_POSTS_QUERY, data });
+      const new_post = result.data.createPost;
+      proxy.writeQuery({
+        query: FETCH_POSTS_QUERY,
+        data: { getPosts: [new_post, ...data.getPosts] },
+      });
       values.body = '';
+    },
+    onError(err) {
+      // this is handled in the useMutation hook... but must be here to keep app from crashing?
     },
   });
 
@@ -28,20 +34,30 @@ function PostForm() {
   }
 
   return (
-    <Form onSubmit={onSubmit}>
-      <h2>Create a Post:</h2>
-      <Form.Field>
-        <Form.Input
-          placeholder="Hi World!"
-          name="body"
-          onChange={onChange}
-          value={values.body}
-        />
-        <Button type="submit" color="teal">
-          Submit
-        </Button>
-      </Form.Field>
-    </Form>
+    <>
+      <Form onSubmit={onSubmit}>
+        <h2>Create a Post:</h2>
+        <Form.Field>
+          <Form.Input
+            placeholder="Hi World!"
+            name="body"
+            onChange={onChange}
+            value={values.body}
+            error={error ? true : false}
+          />
+          <Button type="submit" color="teal">
+            Submit
+          </Button>
+        </Form.Field>
+      </Form>
+      {error && (
+        <div className="ui error message">
+          <ul className="list">
+            <li>{error.graphQLErrors[0].message}</li>
+          </ul>
+        </div>
+      )}
+    </>
   );
 }
 

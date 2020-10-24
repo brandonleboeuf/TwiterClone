@@ -1,6 +1,5 @@
-import gql from 'graphql-tag';
 import React, { useState, useContext } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { gql, useMutation } from '@apollo/client';
 import { Button, Form } from 'semantic-ui-react';
 
 import { AuthContext } from '../context/auth';
@@ -22,9 +21,7 @@ const Register = (props) => {
       context.login(userData);
       props.history.push('/');
     },
-    onError(err) {
-      setErrors(err.graphQLErrors[0].extensions.exception.errors);
-    },
+    onError(err) {},
     variables: values,
   });
 
