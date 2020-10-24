@@ -1,8 +1,8 @@
-const { AuthenticationError, UserInputError } = require("apollo-server");
+const { AuthenticationError, UserInputError } = require('apollo-server');
 // const { argsToArgsConfig } = require("graphql/type/definition");
 
-const Post = require("../../models/Post");
-const checkAuth = require("../../util/check-auth");
+const Post = require('../../models/Post');
+const checkAuth = require('../../util/check-auth');
 
 module.exports = {
   Query: {
@@ -20,7 +20,7 @@ module.exports = {
         if (post) {
           return post;
         } else {
-          throw new Error("Post not found");
+          throw new Error('Post not found');
         }
       } catch (err) {
         throw new Error(err);
@@ -32,8 +32,8 @@ module.exports = {
     async createPost(_, { body }, context) {
       const user = checkAuth(context);
 
-      if (body.trim() === "") {
-        throw new Error("Post body must not be empty");
+      if (body.trim() === '') {
+        throw new Error('Post body must not be empty');
       }
 
       const newPost = new Post({
@@ -45,7 +45,7 @@ module.exports = {
 
       const post = await newPost.save();
 
-      context.pubsub.publish("NEW_POST", {
+      context.pubsub.publish('NEW_POST', {
         newPost: post,
       });
 
@@ -58,9 +58,9 @@ module.exports = {
         const post = await Post.findById(postId);
         if (user.userName === post.userName) {
           await post.delete();
-          return "Post deleted sucessfully";
+          return 'Post deleted sucessfully';
         } else {
-          throw new AuthenticationError("Action not allowed");
+          throw new AuthenticationError('Action not allowed');
         }
       } catch (err) {
         throw new Error(err);
@@ -84,13 +84,13 @@ module.exports = {
 
         await post.save();
         return post;
-      } else throw new UserInputError("Post not found");
+      } else throw new UserInputError('Post not found');
     },
   },
 
   Subscription: {
     newPost: {
-      subscribe: (parent, _, { pubsub }) => pubsub.asyncIterator("NEW_POST"),
+      subscribe: (parent, _, { pubsub }) => pubsub.asyncIterator('NEW_POST'),
     },
   },
 };
