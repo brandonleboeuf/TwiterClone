@@ -7,7 +7,7 @@ import { useForm } from '../util/hooks';
 
 const Register = (props) => {
   const context = useContext(AuthContext);
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
     userName: '',

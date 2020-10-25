@@ -5,22 +5,22 @@ module.exports = gql`
     id: ID!
     body: String!
     createdAt: String!
-    userName: String! 
+    userName: String!
     comments: [Comment]!
     likes: [Like]!
     likeCount: Int!
     commentCount: Int!
   }
-  type Comment{
+  type Comment {
     id: ID!
     body: String!
     createdAt: String!
-    userName: String! 
+    userName: String!
   }
-  type Like{
+  type Like {
     id: ID!
     createdAt: String!
-    userName: String! 
+    userName: String!
   }
   type User {
     id: ID!
@@ -29,7 +29,7 @@ module.exports = gql`
     userName: String!
     createdAt: String!
   }
-  input RegisterInput { 
+  input RegisterInput {
     userName: String!
     password: String!
     confirmPassword: String!
@@ -44,11 +44,11 @@ module.exports = gql`
     login(userName: String!, password: String!): User!
     createPost(body: String!): Post!
     deletePost(postId: ID!): String!
-    createComment(postId:String!, body: String!): Post!
-    deleteComment(postId:String!, commentId: String!): Post!
-    likePost(postId: ID!):Post!
+    createComment(postId: ID!, body: String!): Post!
+    deleteComment(postId: ID!, commentId: ID!): Post!
+    likePost(postId: ID!): Post!
   }
-  type Subscription{
+  type Subscription {
     newPost: Post!
   }
-`; 
+`;
